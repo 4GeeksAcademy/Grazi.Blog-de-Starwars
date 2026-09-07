@@ -1,5 +1,6 @@
 // Import necessary hooks and functions from React.
 import { useContext, useReducer, createContext } from "react";
+import PropTypes from "prop-types";
 import storeReducer, { initialStore } from "../store"  // Import the reducer and the initial state.
 
 // Create a context to hold the global state of the application
@@ -15,6 +16,10 @@ export function StoreProvider({ children }) {
     return <StoreContext.Provider value={{ store, dispatch }}>
         {children}
     </StoreContext.Provider>
+}
+
+StoreProvider.propTypes = {
+    children: PropTypes.node,
 }
 
 // Custom hook to access the global state and dispatch function.
